@@ -1,0 +1,15 @@
+version: "3.2"
+
+services:
+  app:
+    build:
+      context: ./app
+    container_name: "php-app"
+    restart: "always"
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./app:/var/www/html
+      - ./app/config/php/php.ini:/usr/local/etc/php/php.ini
+      - ./app/config/apache:/etc/apache2/sites-enabled
